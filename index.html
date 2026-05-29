@@ -681,32 +681,8 @@
 <header>
   <div class="header-inner">
     <div class="header-brand">
-      <div class="header-seal">
-        <svg class="seal-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a2744" stroke="#c8a84b" stroke-width="2.5"/>
-          <circle cx="50" cy="50" r="42" fill="none" stroke="#c8a84b" stroke-width="1"/>
-          <!-- Eagle body -->
-          <ellipse cx="50" cy="54" rx="16" ry="18" fill="#c8a84b" opacity="0.9"/>
-          <!-- Wings -->
-          <path d="M34 50 Q22 38 18 42 Q24 52 34 54Z" fill="#c8a84b" opacity="0.8"/>
-          <path d="M66 50 Q78 38 82 42 Q76 52 66 54Z" fill="#c8a84b" opacity="0.8"/>
-          <!-- Head -->
-          <circle cx="50" cy="38" r="9" fill="#c8a84b" opacity="0.9"/>
-          <!-- Stars -->
-          <text x="50" y="26" text-anchor="middle" font-size="6" fill="#c8a84b">★ ★ ★</text>
-          <!-- Olive branch & arrows symbols -->
-          <text x="35" y="68" font-size="8" fill="#1a2744">✦</text>
-          <text x="57" y="68" font-size="8" fill="#1a2744">✦</text>
-          <!-- Text arc -->
-          <path id="topArc" d="M15,50 A35,35 0 0,1 85,50" fill="none"/>
-          <text font-size="5.5" fill="#c8a84b" font-weight="bold" letter-spacing="1.5">
-            <textPath href="#topArc" startOffset="8%">PROPERTY CLEARANCE DIVISION</textPath>
-          </text>
-          <path id="botArc" d="M20,58 A35,35 0 0,0 80,58" fill="none"/>
-          <text font-size="4.5" fill="#c8a84b" letter-spacing="1">
-            <textPath href="#botArc" startOffset="12%">EST. 1971 · GSA</textPath>
-          </text>
-        </svg>
+     <div class="header-seal" style="background:none;">
+        <img src="seal.png" alt="PCD Seal" style="width:64px;height:64px;object-fit:contain;">
       </div>
       <div class="header-title">
         <h1>PROPERTY CLEARANCE DIVISION</h1>
@@ -836,22 +812,8 @@
   <div class="two-col-section">
     <div class="region-panel">
       <h2>Regional Offices</h2>
-      <div class="region-map">
-        <div class="map-placeholder">
-          <svg class="map-us-svg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
-            <rect width="600" height="380" fill="#c8d4e8" rx="4"/>
-            <!-- Simplified US outline placeholder -->
-            <path d="M80 120 L100 80 L200 60 L320 55 L420 65 L500 80 L530 110 L540 160 L520 200 L480 220 L440 250 L400 270 L360 290 L300 300 L240 295 L180 280 L130 250 L90 210 L70 170 Z" fill="#8fa8c4" stroke="#6a88aa" stroke-width="2"/>
-            <!-- Region dots -->
-            <circle cx="420" cy="120" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
-            <circle cx="310" cy="140" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
-            <circle cx="360" cy="200" r="8" fill="#1a5c2a" stroke="#fff" stroke-width="2" opacity="0.9"/>
-            <circle cx="290" cy="220" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
-            <circle cx="180" cy="170" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
-            <circle cx="130" cy="150" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
-            <text x="300" y="355" text-anchor="middle" font-size="13" fill="#6a88aa" font-family="Arial">U.S. Regional Coverage Map</text>
-          </svg>
-        </div>
+      <div class="region-map" style="height:auto;">
+        <img src="map.png" alt="PCD Regional Operations Map" style="width:100%;display:block;">
       </div>
       <ul class="region-list">
         <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-northeast');return false;">Northeast Region — Philadelphia, PA</a></li>
@@ -888,7 +850,9 @@
 
       <div class="careers-panel">
         <h2>Careers</h2>
-        <div class="careers-img">🏗️</div>
+        <div class="careers-img" style="padding:0;height:160px;overflow:hidden;">
+        <img src="careers.png" alt="PCD Warehouse Operations" style="width:100%;height:100%;object-fit:cover;">
+      </div>
         <p>Join our team in keeping communities safe and properties secure. The Property Clearance Division offers competitive federal employment with benefits.</p>
         <a href="#" class="view-all" onclick="showPage('careers');return false;">View open positions ▶</a>
       </div>
