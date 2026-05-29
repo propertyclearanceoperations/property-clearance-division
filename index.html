@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Clearance Division | U.S. General Services Administration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-dark: #0f1a30;
+    --navy-mid: #243358;
+    --blue-accent: #1c4a8c;
+    --gold: #c8a84b;
+    --gold-light: #e2c97e;
+    --cream: #f5f2eb;
+    --warm-gray: #e8e5de;
+    --mid-gray: #6b7280;
+    --text-dark: #1a1a1a;
+    --text-body: #333;
+    --red-alert: #8b0000;
+    --green-ok: #1a5c2a;
+    --border: #d1cfc7;
+    --white: #ffffff;
+    --link-blue: #1a4480;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', 'Arial', sans-serif;
+    font-size: 16px;
+    color: var(--text-body);
+    background: var(--white);
+    line-height: 1.6;
+  }
+  a { color: var(--link-blue); text-decoration: underline; }
+  a:hover { color: var(--navy); }
+
+  /* ── GOV BANNER ── */
+  .gov-banner {
+    background: #f0ece3;
+    border-bottom: 1px solid #d4cfc5;
+    padding: 6px 0;
+    font-size: 12px;
+  }
+  .gov-banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #444;
+  }
+  .gov-flag { font-size: 16px; }
+  .gov-banner-inner strong { font-size: 12px; }
+  .banner-expand { margin-left: 16px; color: var(--link-blue); cursor: pointer; text-decoration: underline; font-size: 12px; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    padding: 12px 0;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .header-brand { display: flex; align-items: center; gap: 16px; }
+  .header-seal {
+    width: 64px;
+    height: 64px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .seal-svg { width: 58px; height: 58px; }
+  .header-title { display: flex; flex-direction: column; }
+  .header-title h1 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .header-title span {
+    font-size: 12px;
+    color: var(--mid-gray);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .header-search { display: flex; align-items: center; gap: 0; }
+  .header-search input {
+    border: 1px solid #aaa;
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 220px;
+    font-family: inherit;
+    outline: none;
+  }
+  .header-search button {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .header-search button:hover { background: var(--blue-accent); }
+
+  /* ── TOP NAV ── */
+  .top-utility {
+    background: var(--navy-dark);
+    padding: 6px 0;
+  }
+  .top-utility-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  .top-utility a {
+    color: #c8d4e8;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .top-utility a:hover { color: white; text-decoration: underline; }
+
+  /* ── MAIN NAV ── */
+  nav.main-nav {
+    background: var(--navy);
+    position: relative;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: stretch;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-item > a, .nav-item > button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 16px;
+    color: #dce8f8;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .nav-item > a:hover, .nav-item > button:hover,
+  .nav-item.active > a, .nav-item.active > button {
+    color: white;
+    background: rgba(255,255,255,0.12);
+  }
+  .nav-arrow { font-size: 10px; margin-top: 1px; }
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 220px;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 200;
+  }
+  .nav-item:hover .dropdown { display: block; }
+  .dropdown a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+  .dropdown a:hover { background: var(--cream); color: var(--navy-dark); }
+  .dropdown a:last-child { border-bottom: none; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 400px;
+    background: linear-gradient(135deg, #1a2744 0%, #243358 40%, #1c3a6e 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-img-overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 45%;
+    background: linear-gradient(to right, #1a2744 0%, transparent 30%),
+      url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=60') center/cover no-repeat;
+    opacity: 0.35;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    max-width: 620px;
+    margin-left: max(20px, calc(50vw - 580px));
+  }
+  .hero-content h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 38px;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .hero-content p {
+    font-size: 17px;
+    color: #c8d8f0;
+    margin-bottom: 28px;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-light); color: var(--navy-dark); }
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    padding: 11px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    margin-left: 12px;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; color: white; }
+
+  /* ── WHAT WE DO ── */
+  .section-what {
+    background: var(--cream);
+    padding: 48px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 24px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .service-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: var(--blue-accent); }
+  .service-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+  .service-card h3 { font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+
+  /* ── 2-COLUMN GRID ── */
+  .two-col-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  /* ── REGIONAL OFFICES ── */
+  .region-panel h2, .news-panel h2, .careers-panel h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 20px;
+    color: var(--navy);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .region-map {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #dde4f0 0%, #c8d4e8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map-us-svg { width: 240px; opacity: 0.6; }
+  .region-list { list-style: none; }
+  .region-list li { padding: 5px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+  .region-list li a { text-decoration: none; color: var(--link-blue); }
+  .region-list li a:hover { text-decoration: underline; }
+  .region-icon { display: inline-block; width: 18px; }
+
+  /* ── NEWS ── */
+  .news-item { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .news-item a { font-size: 14px; text-decoration: none; color: var(--link-blue); flex: 1; }
+  .news-item a:hover { text-decoration: underline; }
+  .news-date { font-size: 12px; color: var(--mid-gray); white-space: nowrap; flex-shrink: 0; }
+  .view-all { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--link-blue); }
+
+  /* ── ABOUT STRIP ── */
+  .about-strip {
+    background: var(--navy);
+    padding: 48px 20px;
+  }
+  .about-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-text h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  .about-text p { color: #c0cfe8; font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+  .about-text a { color: var(--gold-light); }
+  .careers-panel { background: #f9f8f4; border: 1px solid var(--border); padding: 28px; }
+  .careers-panel p { font-size: 14px; color: var(--text-body); margin-bottom: 16px; line-height: 1.6; }
+  .careers-img {
+    background: linear-gradient(135deg, #2a3a5c, #1a2744);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 48px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark);
+    color: #a8b8cc;
+    padding: 40px 20px 24px;
+    font-size: 13px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand h3 { color: white; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .footer-brand p { line-height: 1.7; font-size: 12px; }
+  .footer-col h4 { color: #c8d4e8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .footer-col a { display: block; color: #8fa8c4; font-size: 13px; text-decoration: none; margin-bottom: 6px; }
+  .footer-col a:hover { color: white; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #6a7f94;
+  }
+  .footer-seal {
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    opacity: 0.5;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  #page-content { min-height: 60vh; }
+  .page-hidden { display: none !important; }
+
+  /* ── INTERIOR PAGE LAYOUT ── */
+  .page-header-bar {
+    background: var(--navy);
+    padding: 28px 20px;
+    color: white;
+  }
+  .page-header-bar h2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .page-header-bar .breadcrumb {
+    max-width: 1200px;
+    margin: 6px auto 0;
+    font-size: 13px;
+    color: #a8c0e0;
+  }
+  .page-header-bar .breadcrumb a { color: #a8c0e0; }
+  .page-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+  }
+  .page-body.full-width { grid-template-columns: 1fr; }
+  .page-sidebar { border-left: 1px solid var(--border); padding-left: 32px; }
+  .sidebar-nav { list-style: none; }
+  .sidebar-nav li { border-bottom: 1px solid var(--border); }
+  .sidebar-nav a { display: block; padding: 10px 0; font-size: 14px; text-decoration: none; color: var(--link-blue); }
+  .sidebar-nav a:hover { color: var(--navy); }
+  .sidebar-nav a.active { font-weight: 700; color: var(--navy); border-left: 3px solid var(--gold); padding-left: 10px; }
+  .sidebar-box { background: var(--cream); border: 1px solid var(--border); padding: 20px; margin-top: 24px; }
+  .sidebar-box h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .sidebar-box p, .sidebar-box a { font-size: 13px; line-height: 1.6; }
+  h2.section-h { font-family: 'Merriweather', Georgia, serif; font-size: 22px; color: var(--navy); margin-bottom: 16px; }
+  h3.sub-h { font-size: 17px; font-weight: 700; color: var(--navy); margin: 24px 0 10px; }
+  .prose p { margin-bottom: 14px; font-size: 15px; line-height: 1.75; color: var(--text-body); }
+  .prose ul { margin: 12px 0 14px 20px; }
+  .prose ul li { font-size: 15px; line-height: 1.7; margin-bottom: 6px; }
+  .info-box { background: #e8f0f8; border-left: 4px solid var(--blue-accent); padding: 16px 20px; margin: 20px 0; font-size: 14px; line-height: 1.7; }
+  .alert-box { background: #fff3cd; border-left: 4px solid #c8a000; padding: 16px 20px; margin: 20px 0; font-size: 14px; }
+  .dead-end-box { background: #f4f4f4; border: 1px solid #ccc; padding: 32px; text-align: center; margin: 24px 0; }
+  .dead-end-box h3 { color: var(--mid-gray); margin-bottom: 10px; }
+  .dead-end-box p { font-size: 14px; color: #888; }
+
+  /* Office Cards */
+  .office-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 8px; }
+  .office-card { border: 1px solid var(--border); padding: 24px; background: var(--cream); }
+  .office-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .office-card .office-city { font-size: 13px; color: var(--mid-gray); margin-bottom: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .office-card p { font-size: 14px; line-height: 1.6; color: var(--text-body); margin-bottom: 6px; }
+  .office-card .office-link { font-size: 14px; color: var(--link-blue); text-decoration: none; display: inline-block; margin-top: 10px; }
+  .office-card .office-link:hover { text-decoration: underline; }
+  .office-status { display: inline-block; padding: 2px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .status-active { background: #d4edda; color: var(--green-ok); }
+  .status-limited { background: #fff3cd; color: #856404; }
+  .status-unavailable { background: #f8d7da; color: var(--red-alert); }
+
+  /* Apply Table */
+  .apply-steps { counter-reset: step; list-style: none; margin: 0; padding: 0; }
+  .apply-steps li { counter-increment: step; display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .apply-steps li::before { content: counter(step); width: 32px; height: 32px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+  .apply-steps li .step-content h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .apply-steps li .step-content p { font-size: 14px; color: var(--text-body); line-height: 1.6; }
+
+  /* Forms */
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #aaa;
+    font-size: 15px;
+    font-family: inherit;
+    background: white;
+    color: var(--text-dark);
+  }
+  .form-group input:focus, .form-group select:focus { outline: 2px solid var(--blue-accent); border-color: var(--blue-accent); }
+  .form-note { font-size: 12px; color: var(--mid-gray); margin-top: 4px; }
+  .btn-submit {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .btn-submit:hover { background: var(--blue-accent); }
+
+  /* Login Page */
+  .login-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    padding: 40px 20px;
+  }
+  .login-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  .login-box .login-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .login-box .login-header .mini-seal { width: 40px; height: 40px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; }
+  .login-box .login-header div h3 { font-size: 16px; font-weight: 700; color: var(--navy); }
+  .login-box .login-header div span { font-size: 12px; color: var(--mid-gray); }
+  .login-box h4 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .login-box .subtitle { font-size: 13px; color: var(--mid-gray); margin-bottom: 24px; line-height: 1.5; }
+  .login-error { background: #f8d7da; border: 1px solid #f5c2c7; padding: 10px 14px; font-size: 13px; color: var(--red-alert); margin-bottom: 16px; display: none; }
+  .login-notice { background: #e8f0f8; border-left: 3px solid var(--blue-accent); padding: 10px 14px; font-size: 12px; color: #334; margin-top: 20px; line-height: 1.5; }
+
+  /* Training Video Page */
+  .training-page { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+  .training-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+  .training-header h2 { font-family: 'Merriweather', serif; font-size: 22px; color: var(--navy); }
+  .employee-badge { background: var(--navy); color: white; padding: 6px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .video-container {
+    background: #0a0a0a;
+    aspect-ratio: 16/9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    margin-bottom: 24px;
+  }
+  .video-placeholder-inner { text-align: center; color: #888; }
+  .video-placeholder-inner .play-icon { font-size: 64px; color: rgba(200,168,75,0.5); display: block; margin-bottom: 16px; }
+  .video-placeholder-inner p { font-size: 14px; }
+  .video-placeholder-inner .vid-title { color: #aaa; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .training-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; background: var(--cream); border: 1px solid var(--border); padding: 20px; margin-bottom: 28px; }
+  .training-meta-item label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid-gray); font-weight: 700; display: block; margin-bottom: 4px; }
+  .training-meta-item span { font-size: 14px; font-weight: 600; color: var(--navy); }
+  .training-modules { border: 1px solid var(--border); }
+  .training-module { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .training-module:last-child { border-bottom: none; }
+  .module-num { width: 28px; height: 28px; background: var(--cream); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; color: var(--navy); }
+  .module-info { flex: 1; }
+  .module-info strong { display: block; font-weight: 600; color: var(--navy); }
+  .module-info span { font-size: 12px; color: var(--mid-gray); }
+  .module-status { font-size: 12px; padding: 2px 8px; background: var(--cream); border: 1px solid var(--border); color: var(--mid-gray); }
+  .module-status.active { background: #d4edda; border-color: #b8dfc4; color: var(--green-ok); font-weight: 700; }
+  .logout-bar { background: var(--cream); border: 1px solid var(--border); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; font-size: 13px; margin-bottom: 24px; }
+  .logout-bar strong { color: var(--navy); }
+  .btn-logout { background: none; border: 1px solid var(--mid-gray); padding: 5px 14px; font-size: 12px; cursor: pointer; color: var(--mid-gray); font-family: inherit; }
+  .btn-logout:hover { background: #eee; }
+
+  /* Notices */
+  .notice-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .notice-table th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 600; }
+  .notice-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .notice-table tr:hover td { background: var(--cream); }
+  .notice-table .tag { display: inline-block; padding: 2px 7px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .tag-memo { background: #dbe8f4; color: #1a4480; }
+  .tag-notice { background: #fef3c7; color: #92400e; }
+  .tag-update { background: #d4edda; color: #155724; }
+  .tag-restricted { background: #f8d7da; color: #721c24; }
+
+  /* PDF list */
+  .pdf-list { list-style: none; }
+  .pdf-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .pdf-list li .pdf-icon { font-size: 20px; color: var(--red-alert); flex-shrink: 0; }
+  .pdf-list li a { color: var(--link-blue); text-decoration: none; }
+  .pdf-list li a:hover { text-decoration: underline; }
+  .pdf-list li .pdf-size { color: var(--mid-gray); font-size: 12px; margin-left: auto; }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .contact-card { border: 1px solid var(--border); padding: 24px; }
+  .contact-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 12px; border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
+  .contact-card p { font-size: 14px; line-height: 1.8; color: var(--text-body); }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .two-col-section { grid-template-columns: 1fr; gap: 32px; }
+    .about-strip-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .page-body { grid-template-columns: 1fr; }
+    .page-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; }
+    .office-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-content h2 { font-size: 26px; }
+    .header-title h1 { font-size: 16px; }
+    .header-search { display: none; }
+    .nav-inner { flex-wrap: wrap; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .training-meta { grid-template-columns: 1fr; }
+    .two-col-section { padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- GOV BANNER -->
+<div class="gov-banner">
+  <div class="gov-banner-inner">
+    <span class="gov-flag">🇺🇸</span>
+    <strong>An official website of the United States government</strong>
+    <span class="banner-expand">Here's how you know ▾</span>
+  </div>
+</div>
+
+<!-- TOP UTILITY BAR -->
+<div class="top-utility">
+  <div class="top-utility-inner">
+    <a href="#" onclick="showPage('contact');return false;">Contact Us</a>
+    <a href="#" onclick="showPage('careers');return false;">Careers</a>
+    <a href="#" onclick="showPage('login');return false;">Employee Login</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="header-seal">
+        <svg class="seal-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a2744" stroke="#c8a84b" stroke-width="2.5"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#c8a84b" stroke-width="1"/>
+          <!-- Eagle body -->
+          <ellipse cx="50" cy="54" rx="16" ry="18" fill="#c8a84b" opacity="0.9"/>
+          <!-- Wings -->
+          <path d="M34 50 Q22 38 18 42 Q24 52 34 54Z" fill="#c8a84b" opacity="0.8"/>
+          <path d="M66 50 Q78 38 82 42 Q76 52 66 54Z" fill="#c8a84b" opacity="0.8"/>
+          <!-- Head -->
+          <circle cx="50" cy="38" r="9" fill="#c8a84b" opacity="0.9"/>
+          <!-- Stars -->
+          <text x="50" y="26" text-anchor="middle" font-size="6" fill="#c8a84b">★ ★ ★</text>
+          <!-- Olive branch & arrows symbols -->
+          <text x="35" y="68" font-size="8" fill="#1a2744">✦</text>
+          <text x="57" y="68" font-size="8" fill="#1a2744">✦</text>
+          <!-- Text arc -->
+          <path id="topArc" d="M15,50 A35,35 0 0,1 85,50" fill="none"/>
+          <text font-size="5.5" fill="#c8a84b" font-weight="bold" letter-spacing="1.5">
+            <textPath href="#topArc" startOffset="8%">PROPERTY CLEARANCE DIVISION</textPath>
+          </text>
+          <path id="botArc" d="M20,58 A35,35 0 0,0 80,58" fill="none"/>
+          <text font-size="4.5" fill="#c8a84b" letter-spacing="1">
+            <textPath href="#botArc" startOffset="12%">EST. 1971 · GSA</textPath>
+          </text>
+        </svg>
+      </div>
+      <div class="header-title">
+        <h1>PROPERTY CLEARANCE DIVISION</h1>
+        <span>U.S. General Services Administration</span>
+      </div>
+    </div>
+    <div class="header-search">
+      <input type="text" placeholder="Search PCD.gov" aria-label="Search">
+      <button onclick="showPage('search-results');return false;">Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav" aria-label="Primary navigation">
+  <div class="nav-inner">
+    <div class="nav-item">
+      <button onclick="showPage('about')">About PCD <span class="nav-arrow">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('about');return false;">Mission &amp; History</a>
+        <a href="#" onclick="showPage('leadership');return false;">Leadership</a>
+        <a href="#" onclick="showPage('about');return false;">Organizational Structure</a>
+        <a href="#" onclick="showPage('about');return false;">Inspector General</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button onclick="showPage('services')">Services <span class="nav-arrow">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('services');return false;">Property Recovery &amp; Cleanout</a>
+        <a href="#" onclick="showPage('services');return false;">Asset Recovery &amp; Transport</a>
+        <a href="#" onclick="showPage('services');return false;">Media Transfer Operations</a>
+        <a href="#" onclick="showPage('services');return false;">Archival Review &amp; Records</a>
+        <a href="#" onclick="showPage('services');return false;">Hazard &amp; Safety Management</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button onclick="showPage('divisions')">Divisions <span class="nav-arrow">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('divisions');return false;">Field Operations</a>
+        <a href="#" onclick="showPage('divisions');return false;">Asset Documentation</a>
+        <a href="#" onclick="showPage('divisions');return false;">Media Transfer Office</a>
+        <a href="#" onclick="showPage('dead-internal');return false;">Classified Records Unit</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button onclick="showPage('regional')">Regional Offices <span class="nav-arrow">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('regional');return false;">All Regions</a>
+        <a href="#" onclick="showPage('region-northeast');return false;">Northeast – Philadelphia, PA</a>
+        <a href="#" onclick="showPage('region-midwest');return false;">Midwest – Chicago, IL</a>
+        <a href="#" onclick="showPage('region-southeast');return false;">Southeast – Atlanta, GA</a>
+        <a href="#" onclick="showPage('region-south');return false;">South Central – Dallas, TX</a>
+        <a href="#" onclick="showPage('region-western');return false;">Western – Denver, CO</a>
+        <a href="#" onclick="showPage('region-pacific');return false;">Pacific – Seattle, WA</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button onclick="showPage('resources')">Resources <span class="nav-arrow">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('resources');return false;">Forms &amp; Documents</a>
+        <a href="#" onclick="showPage('notices');return false;">Notices &amp; Memos</a>
+        <a href="#" onclick="showPage('resources');return false;">Training Materials</a>
+        <a href="#" onclick="showPage('dead-archive');return false;">Archived Records</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <button onclick="showPage('notices')">News &amp; Notices <span class="nav-arrow">▾</span></button>
+      <div class="dropdown">
+        <a href="#" onclick="showPage('notices');return false;">All Notices</a>
+        <a href="#" onclick="showPage('notices');return false;">Internal Memos</a>
+        <a href="#" onclick="showPage('notices');return false;">Policy Updates</a>
+        <a href="#" onclick="showPage('notices');return false;">Press Releases</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PAGE CONTENT -->
+<!-- ═══════════════════════════════════════════════ -->
+<div id="page-content">
+
+<!-- ══ HOME ══ -->
+<div id="page-home">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-img-overlay"></div>
+    <div class="hero-content">
+      <h2>Safely.<br>Professionally.<br>Responsibly.</h2>
+      <p>The Property Clearance Division provides federal, state, and local partners with comprehensive property recovery, documentation, and evidence handling services.</p>
+      <a href="#" class="btn-primary" onclick="showPage('about');return false;">Learn More</a>
+      <a href="#" class="btn-secondary" onclick="showPage('services');return false;">Our Services</a>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section-what">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-label">What We Do</div>
+      <div class="services-grid">
+        <a class="service-card" href="#" onclick="showPage('services');return false;">
+          <span class="service-icon">🏚️</span>
+          <h3>Property Recovery<br>&amp; Cleanout</h3>
+        </a>
+        <a class="service-card" href="#" onclick="showPage('services');return false;">
+          <span class="service-icon">🚛</span>
+          <h3>Asset Recovery<br>&amp; Transport</h3>
+        </a>
+        <a class="service-card" href="#" onclick="showPage('services');return false;">
+          <span class="service-icon">📼</span>
+          <h3>Media Transfer<br>Operations</h3>
+        </a>
+        <a class="service-card" href="#" onclick="showPage('services');return false;">
+          <span class="service-icon">📁</span>
+          <h3>Archival Review<br>&amp; Records</h3>
+        </a>
+        <a class="service-card" href="#" onclick="showPage('services');return false;">
+          <span class="service-icon">🛡️</span>
+          <h3>Hazard &amp; Safety<br>Management</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2-COL: REGIONAL + NEWS -->
+  <div class="two-col-section">
+    <div class="region-panel">
+      <h2>Regional Offices</h2>
+      <div class="region-map">
+        <div class="map-placeholder">
+          <svg class="map-us-svg" viewBox="0 0 600 380" xmlns="http://www.w3.org/2000/svg">
+            <rect width="600" height="380" fill="#c8d4e8" rx="4"/>
+            <!-- Simplified US outline placeholder -->
+            <path d="M80 120 L100 80 L200 60 L320 55 L420 65 L500 80 L530 110 L540 160 L520 200 L480 220 L440 250 L400 270 L360 290 L300 300 L240 295 L180 280 L130 250 L90 210 L70 170 Z" fill="#8fa8c4" stroke="#6a88aa" stroke-width="2"/>
+            <!-- Region dots -->
+            <circle cx="420" cy="120" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
+            <circle cx="310" cy="140" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
+            <circle cx="360" cy="200" r="8" fill="#1a5c2a" stroke="#fff" stroke-width="2" opacity="0.9"/>
+            <circle cx="290" cy="220" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
+            <circle cx="180" cy="170" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
+            <circle cx="130" cy="150" r="8" fill="#c8a84b" stroke="#fff" stroke-width="2"/>
+            <text x="300" y="355" text-anchor="middle" font-size="13" fill="#6a88aa" font-family="Arial">U.S. Regional Coverage Map</text>
+          </svg>
+        </div>
+      </div>
+      <ul class="region-list">
+        <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-northeast');return false;">Northeast Region — Philadelphia, PA</a></li>
+        <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-midwest');return false;">Midwest Region — Chicago, IL</a></li>
+        <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-southeast');return false;">Southeast Region — Atlanta, GA</a></li>
+        <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-south');return false;">South Central Region — Dallas, TX</a></li>
+        <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-western');return false;">Western Region — Denver, CO</a></li>
+        <li><span class="region-icon">📍</span> <a href="#" onclick="showPage('region-pacific');return false;">Pacific Region — Seattle, WA</a></li>
+      </ul>
+      <a href="#" class="view-all" onclick="showPage('regional');return false;">View all locations ▶</a>
+    </div>
+
+    <div>
+      <div class="news-panel" style="margin-bottom:32px;">
+        <h2>Latest News &amp; Notices</h2>
+        <div class="news-item">
+          <a href="#" onclick="showPage('notices');return false;">Updated General Property Clearance Guidelines</a>
+          <span class="news-date">05/14/2024</span>
+        </div>
+        <div class="news-item">
+          <a href="#" onclick="showPage('notices');return false;">New Archival Review Procedures (Internal Memo)</a>
+          <span class="news-date">04/30/2024</span>
+        </div>
+        <div class="news-item">
+          <a href="#" onclick="showPage('notices');return false;">Southeast Region Facility Expansion</a>
+          <span class="news-date">04/22/2024</span>
+        </div>
+        <div class="news-item">
+          <a href="#" onclick="showPage('notices');return false;">Media Transfer Operations – Tape Handling Reminder</a>
+          <span class="news-date">04/05/2024</span>
+        </div>
+        <a href="#" class="view-all" onclick="showPage('notices');return false;">View all notices ▶</a>
+      </div>
+
+      <div class="careers-panel">
+        <h2>Careers</h2>
+        <div class="careers-img">🏗️</div>
+        <p>Join our team in keeping communities safe and properties secure. The Property Clearance Division offers competitive federal employment with benefits.</p>
+        <a href="#" class="view-all" onclick="showPage('careers');return false;">View open positions ▶</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="about-strip-inner">
+      <div class="about-text">
+        <h2>About Property Clearance Division</h2>
+        <p>The Property Clearance Division (PCD) is a branch of the U.S. General Services Administration. We partner with government agencies, municipalities, and authorized contractors to manage the recovery, removal, transportation, and documentation of personal property and assets from federal and non-federal sites.</p>
+        <p>Founded in 1971, PCD operates six regional offices across the continental United States, serving thousands of federal and interagency clients annually.</p>
+        <a href="#" onclick="showPage('about');return false;">Learn more about PCD ▶</a>
+      </div>
+      <div class="careers-panel" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);">
+        <h2 style="color:#c8d8f0;border-color:rgba(200,168,75,0.5);">Quick Links</h2>
+        <p style="color:#8fa8c4;"><a href="#" style="color:#c8d8f0;" onclick="showPage('careers');return false;">▶ Employment Opportunities</a></p>
+        <p style="color:#8fa8c4;"><a href="#" style="color:#c8d8f0;" onclick="showPage('resources');return false;">▶ Forms &amp; Documents</a></p>
+        <p style="color:#8fa8c4;"><a href="#" style="color:#c8d8f0;" onclick="showPage('contact');return false;">▶ Contact a Regional Office</a></p>
+        <p style="color:#8fa8c4;"><a href="#" style="color:#c8d8f0;" onclick="showPage('notices');return false;">▶ Notices &amp; Policy Updates</a></p>
+        <p style="color:#8fa8c4;"><a href="#" style="color:#c8d8f0;" onclick="showPage('login');return false;">▶ Employee Portal Login</a></p>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-home -->
+
+<!-- ══ ABOUT ══ -->
+<div id="page-about" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>About the Property Clearance Division</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / About PCD</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Mission Statement</h2>
+      <p>The Property Clearance Division (PCD) is committed to the safe, professional, and responsible management of federal and interagency property assets. We serve the public interest by ensuring that property recovery, documentation, and clearance operations are conducted with integrity, accountability, and strict adherence to federal regulatory standards.</p>
+      <div class="info-box">
+        <strong>Our Core Mission:</strong> To provide federal, state, and local partners with comprehensive property recovery, documentation, and evidence handling services — safely, professionally, and responsibly.
+      </div>
+
+      <h3 class="sub-h">History &amp; Background</h3>
+      <p>The Property Clearance Division was established in 1971 under the General Services Administration in response to the growing need for a dedicated federal body to manage interagency property disposition and asset clearance. In its early decades, PCD focused primarily on surplus federal property removal from decommissioned military installations and government facilities.</p>
+      <p>Through the 1980s and 1990s, PCD's mandate expanded significantly to include media transfer operations — specifically the cataloguing and preservation of analog media from government facilities — as well as hazardous material identification protocols and chain-of-custody documentation for sensitive property.</p>
+      <p>Today, PCD operates six regional offices across the United States and maintains active partnerships with federal agencies, municipal governments, and authorized private contractors. The division employs field specialists, documentation analysts, logistics coordinators, and administrative personnel across all regions.</p>
+
+      <h3 class="sub-h">Core Values</h3>
+      <ul>
+        <li><strong>Integrity</strong> — Every asset is documented and handled according to federal guidelines with no exceptions.</li>
+        <li><strong>Accountability</strong> — Chain-of-custody is maintained at every stage of the recovery and clearance process.</li>
+        <li><strong>Professionalism</strong> — Our field teams are trained, certified, and equipped to manage complex property scenarios.</li>
+        <li><strong>Service</strong> — We exist to serve our agency partners and the communities we operate in.</li>
+      </ul>
+
+      <h3 class="sub-h">Organizational Structure</h3>
+      <p>PCD is organized into five primary operational divisions: Field Operations, Asset Documentation &amp; Inventory, Media Transfer Operations, Archival Records Management, and Hazard &amp; Safety Compliance. Each regional office maintains its own Field Operations team while sharing centralized documentation and compliance oversight from national headquarters in Washington, D.C.</p>
+      <a href="#" class="btn-primary" onclick="showPage('contact');return false;" style="margin-top:20px;display:inline-block;">Contact PCD</a>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('about');return false;" class="active">Mission &amp; History</a></li>
+        <li><a href="#" onclick="showPage('leadership');return false;">Leadership</a></li>
+        <li><a href="#" onclick="showPage('dead-internal');return false;">Org Chart (PDF)</a></li>
+        <li><a href="#" onclick="showPage('dead-internal');return false;">Inspector General</a></li>
+        <li><a href="#" onclick="showPage('dead-internal');return false;">Accessibility</a></li>
+      </ul>
+      <div class="sidebar-box">
+        <h4>Established</h4>
+        <p>1971 — General Services Administration</p>
+        <h4 style="margin-top:14px;">Headquarters</h4>
+        <p>1800 F Street NW<br>Washington, DC 20405</p>
+        <h4 style="margin-top:14px;">Contact</h4>
+        <p>(202) 272-2500<br>pcd.contact@gsa.gov</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LEADERSHIP ══ -->
+<div id="page-leadership" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>PCD Leadership</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('about');return false;">About PCD</a> / Leadership</div>
+  </div>
+  <div class="page-body full-width">
+    <div class="dead-end-box">
+      <h3>⚠ Portal Access Required</h3>
+      <p>The Leadership Directory is currently accessible to authorized agency partners only.<br>Please log in to the Employee Portal or contact your regional office for assistance.</p>
+      <br>
+      <a href="#" onclick="showPage('login');return false;" class="btn-primary">Employee Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SERVICES ══ -->
+<div id="page-services" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>PCD Services</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / Services</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Our Service Areas</h2>
+      <p>The Property Clearance Division offers a comprehensive suite of federally authorized property and asset management services to partner agencies, municipalities, and authorized contractors.</p>
+
+      <h3 class="sub-h">🏚️ Property Recovery &amp; Cleanout</h3>
+      <p>PCD field teams conduct systematic recovery and cleanout operations at residential, commercial, and government facilities. Services include full-property inventory, item categorization, safe removal, and site documentation. All operations comply with federal property disposition standards and applicable state regulations.</p>
+
+      <h3 class="sub-h">🚛 Asset Recovery &amp; Transport</h3>
+      <p>We coordinate the logistics of large-scale asset recovery and transportation for government surplus, estate resolution, and interagency transfer operations. Our fleet of GSA-certified transport vehicles operates across all six regional service areas with full chain-of-custody documentation.</p>
+
+      <h3 class="sub-h">📼 Media Transfer Operations</h3>
+      <p>The Media Transfer Office (MTO) handles the cataloguing, secure transfer, and archival processing of analog and digital media from government facilities. This includes magnetic tape, film, microfilm, and digital storage media. The MTO maintains strict handling protocols for sensitive and classified media.</p>
+
+      <h3 class="sub-h">📁 Archival Review &amp; Records</h3>
+      <p>PCD works in conjunction with the National Archives and Records Administration (NARA) to process, review, and prepare documentary records for long-term federal archival storage. Our document specialists are trained in federal records classification standards.</p>
+
+      <h3 class="sub-h">🛡️ Hazard &amp; Safety Management</h3>
+      <p>Properties containing hazardous materials, environmental contamination, or safety-risk items require specialized handling. PCD's certified hazard response teams coordinate with EPA and OSHA to ensure compliant identification, containment, and removal of risk materials prior to full property clearance.</p>
+
+      <div class="info-box">
+        To request PCD services for a federal or interagency project, contact your nearest regional office or submit a <a href="#" onclick="showPage('dead-form');return false;">Service Request Form</a>.
+      </div>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('services');return false;" class="active">All Services</a></li>
+        <li><a href="#" onclick="showPage('dead-form');return false;">Request Service</a></li>
+        <li><a href="#" onclick="showPage('resources');return false;">Forms &amp; Documents</a></li>
+        <li><a href="#" onclick="showPage('contact');return false;">Contact Us</a></li>
+      </ul>
+      <div class="sidebar-box">
+        <h4>Service Request</h4>
+        <p>All service requests must originate from an authorized federal or interagency contact.<br><br><a href="#" onclick="showPage('dead-form');return false;">Submit a Request ▶</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DIVISIONS ══ -->
+<div id="page-divisions" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>PCD Divisions</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / Divisions</div>
+  </div>
+  <div class="page-body full-width">
+    <div class="prose">
+      <h2 class="section-h">Operational Divisions</h2>
+      <p>The Property Clearance Division is organized into five core operational divisions, each responsible for a distinct aspect of the agency's mission.</p>
+      <div class="office-grid">
+        <div class="office-card">
+          <h3>Field Operations</h3>
+          <div class="office-city">Front-Line Recovery</div>
+          <p>Coordinates all on-site property recovery, cleanout, and inspection activities. Field Operations teams are deployed from regional offices and operate under strict safety and documentation protocols.</p>
+        </div>
+        <div class="office-card">
+          <h3>Asset Documentation &amp; Inventory</h3>
+          <div class="office-city">Records &amp; Chain-of-Custody</div>
+          <p>Responsible for the creation, maintenance, and verification of all property inventory records. Ensures compliance with federal asset tracking and reporting requirements.</p>
+        </div>
+        <div class="office-card">
+          <h3>Media Transfer Operations</h3>
+          <div class="office-city">MTO — Analog &amp; Digital Media</div>
+          <p>Manages the cataloguing, secure handling, and transfer of media assets from government and interagency facilities. Includes classification review for sensitive media.</p>
+          <span class="office-status status-limited">Restricted Access</span>
+        </div>
+        <div class="office-card">
+          <h3>Archival Records Management</h3>
+          <div class="office-city">Long-Term Documentation</div>
+          <p>Oversees the processing and preparation of federal documentary records for NARA archival submission. Works in coordination with agency records officers.</p>
+        </div>
+        <div class="office-card">
+          <h3>Hazard &amp; Safety Compliance</h3>
+          <div class="office-city">Environmental &amp; Safety Standards</div>
+          <p>Ensures all PCD field operations meet EPA, OSHA, and GSA safety standards. Conducts hazardous material assessments and coordinates remediation activities.</p>
+        </div>
+        <div class="office-card">
+          <h3>Classified Records Unit</h3>
+          <div class="office-city">Internal Use Only</div>
+          <p>Access to this division's portal and operational details requires employee-level authentication.</p>
+          <span class="office-status status-unavailable">Employee Access Only</span><br>
+          <a href="#" onclick="showPage('login');return false;" class="office-link">Login to access ▶</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ REGIONAL OFFICES (All) ══ -->
+<div id="page-regional" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Regional Offices</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / Regional Offices</div>
+  </div>
+  <div class="page-body full-width">
+    <h2 class="section-h">PCD Regional Office Network</h2>
+    <p style="margin-bottom:24px;font-size:15px;color:var(--text-body);">The Property Clearance Division maintains six regional offices across the continental United States. Each office serves a defined geographic territory and provides the full range of PCD field services.</p>
+    <div class="office-grid">
+      <div class="office-card">
+        <span class="office-status status-active">Active</span>
+        <h3>Northeast Region</h3>
+        <div class="office-city">Philadelphia, Pennsylvania</div>
+        <p>📍 100 Penn Square East, Suite 400<br>Philadelphia, PA 19107</p>
+        <p>📞 (215) 446-4900<br>📧 pcd.northeast@gsa.gov</p>
+        <a href="#" onclick="showPage('region-northeast');return false;" class="office-link">Office Details ▶</a>
+      </div>
+      <div class="office-card">
+        <span class="office-status status-active">Active</span>
+        <h3>Midwest Region</h3>
+        <div class="office-city">Chicago, Illinois</div>
+        <p>📍 230 S. Dearborn Street, Suite 3400<br>Chicago, IL 60604</p>
+        <p>📞 (312) 886-2000<br>📧 pcd.midwest@gsa.gov</p>
+        <a href="#" onclick="showPage('region-midwest');return false;" class="office-link">Office Details ▶</a>
+      </div>
+      <div class="office-card">
+        <span class="office-status status-active">Active</span>
+        <h3>Southeast Region</h3>
+        <div class="office-city">Atlanta, Georgia</div>
+        <p>📍 401 West Peachtree Street<br>Atlanta, GA 30308</p>
+        <p>📞 (404) 331-3200<br>📧 pcd.southeast@gsa.gov</p>
+        <a href="#" onclick="showPage('region-southeast');return false;" class="office-link">Office Details ▶</a>
+      </div>
+      <div class="office-card">
+        <span class="office-status status-active">Active</span>
+        <h3>South Central Region</h3>
+        <div class="office-city">Dallas, Texas</div>
+        <p>📍 819 Taylor Street, Room 11A00<br>Fort Worth, TX 76102</p>
+        <p>📞 (817) 978-2321<br>📧 pcd.southcentral@gsa.gov</p>
+        <a href="#" onclick="showPage('region-south');return false;" class="office-link">Office Details ▶</a>
+      </div>
+      <div class="office-card">
+        <span class="office-status status-active">Active</span>
+        <h3>Western Region</h3>
+        <div class="office-city">Denver, Colorado</div>
+        <p>📍 1244 Speer Boulevard, Suite 300<br>Denver, CO 80204</p>
+        <p>📞 (303) 236-7408<br>📧 pcd.western@gsa.gov</p>
+        <a href="#" onclick="showPage('region-western');return false;" class="office-link">Office Details ▶</a>
+      </div>
+      <div class="office-card">
+        <span class="office-status status-active">Active</span>
+        <h3>Pacific Region</h3>
+        <div class="office-city">Seattle, Washington</div>
+        <p>📍 400 15th Street SW<br>Auburn, WA 98001</p>
+        <p>📞 (253) 931-7956<br>📧 pcd.pacific@gsa.gov</p>
+        <a href="#" onclick="showPage('region-pacific');return false;" class="office-link">Office Details ▶</a>
+      </div>
+    </div>
+    <div class="alert-box" style="margin-top:28px;">
+      <strong>Note:</strong> Walk-in service is not available at regional offices. All service inquiries must be submitted in advance. Access to facility grounds requires prior coordination with regional staff.
+    </div>
+  </div>
+</div>
+
+<!-- ══ INDIVIDUAL REGION PAGES ══ -->
+<div id="page-region-northeast" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Northeast Region — Philadelphia, PA</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('regional');return false;">Regional Offices</a> / Northeast</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Northeast Regional Office</h2>
+      <div class="info-box">
+        <strong>Service Territory:</strong> Connecticut, Delaware, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, Pennsylvania, Rhode Island, Vermont, Virginia, West Virginia, and the District of Columbia.
+      </div>
+      <h3 class="sub-h">Office Contact</h3>
+      <p>📍 100 Penn Square East, Suite 400, Philadelphia, PA 19107<br>
+      📞 (215) 446-4900<br>
+      📧 pcd.northeast@gsa.gov<br>
+      🕐 Monday – Friday, 8:00 AM – 4:30 PM EST</p>
+      <h3 class="sub-h">Regional Director</h3>
+      <p>The Northeast Regional Director's office oversees all field operations, asset documentation, and contractor coordination within the Northeast territory. Contact the main office line for directorial inquiries.</p>
+      <h3 class="sub-h">Active Operations</h3>
+      <p>The Northeast Region is currently processing requests under the FY2024 Federal Facility Clearance Initiative. New service requests for FY2024 Q3 have been suspended pending capacity review. Please check back for updates or contact the office directly.</p>
+      <a href="#" onclick="showPage('dead-form');return false;" class="btn-primary" style="margin-top:8px;display:inline-block;">Submit Inquiry</a>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('region-northeast');return false;" class="active">Northeast</a></li>
+        <li><a href="#" onclick="showPage('region-midwest');return false;">Midwest</a></li>
+        <li><a href="#" onclick="showPage('region-southeast');return false;">Southeast</a></li>
+        <li><a href="#" onclick="showPage('region-south');return false;">South Central</a></li>
+        <li><a href="#" onclick="showPage('region-western');return false;">Western</a></li>
+        <li><a href="#" onclick="showPage('region-pacific');return false;">Pacific</a></li>
+      </ul>
+      <div class="sidebar-box">
+        <h4>Portal Access</h4>
+        <p>Northeast staff portal access requires employee login.<br><br><a href="#" onclick="showPage('dead-internal');return false;">Staff Directory (Restricted)</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="page-region-midwest" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Midwest Region — Chicago, IL</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('regional');return false;">Regional Offices</a> / Midwest</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Midwest Regional Office</h2>
+      <div class="info-box">
+        <strong>Service Territory:</strong> Illinois, Indiana, Iowa, Kansas, Michigan, Minnesota, Missouri, Nebraska, North Dakota, Ohio, South Dakota, Wisconsin.
+      </div>
+      <h3 class="sub-h">Office Contact</h3>
+      <p>📍 230 S. Dearborn Street, Suite 3400, Chicago, IL 60604<br>
+      📞 (312) 886-2000<br>
+      📧 pcd.midwest@gsa.gov<br>
+      🕐 Monday – Friday, 8:00 AM – 4:30 PM CST</p>
+      <p>This office is not currently accessible via the public web portal for service submissions. Please contact the office directly by phone or email.</p>
+      <div class="dead-end-box">
+        <h3>Online Service Portal Unavailable</h3>
+        <p>The Midwest Region online service portal is currently undergoing scheduled maintenance.<br>Expected restoration: TBD. Please contact the office directly.</p>
+      </div>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('region-northeast');return false;">Northeast</a></li>
+        <li><a href="#" onclick="showPage('region-midwest');return false;" class="active">Midwest</a></li>
+        <li><a href="#" onclick="showPage('region-southeast');return false;">Southeast</a></li>
+        <li><a href="#" onclick="showPage('region-south');return false;">South Central</a></li>
+        <li><a href="#" onclick="showPage('region-western');return false;">Western</a></li>
+        <li><a href="#" onclick="showPage('region-pacific');return false;">Pacific</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="page-region-southeast" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Southeast Region — Atlanta, GA</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('regional');return false;">Regional Offices</a> / Southeast</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Southeast Regional Office</h2>
+      <div class="info-box"><strong>Service Territory:</strong> Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee.</div>
+      <h3 class="sub-h">Office Contact</h3>
+      <p>📍 401 West Peachtree Street, Atlanta, GA 30308<br>📞 (404) 331-3200<br>📧 pcd.southeast@gsa.gov<br>🕐 Monday – Friday, 8:00 AM – 4:30 PM EST</p>
+      <h3 class="sub-h">Regional Notice — Facility Expansion</h3>
+      <p>The Southeast Regional Office is currently undergoing a facility expansion project to accommodate increased operational demand. All services remain active. Visitors should use the temporary entrance on Peachtree Center Avenue during construction (est. completion Q1 2025).</p>
+      <a href="#" onclick="showPage('contact');return false;" class="btn-primary" style="margin-top:12px;display:inline-block;">Contact Southeast Office</a>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('region-northeast');return false;">Northeast</a></li>
+        <li><a href="#" onclick="showPage('region-midwest');return false;">Midwest</a></li>
+        <li><a href="#" onclick="showPage('region-southeast');return false;" class="active">Southeast</a></li>
+        <li><a href="#" onclick="showPage('region-south');return false;">South Central</a></li>
+        <li><a href="#" onclick="showPage('region-western');return false;">Western</a></li>
+        <li><a href="#" onclick="showPage('region-pacific');return false;">Pacific</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="page-region-south" class="page-hidden">
+  <div class="page-header-bar"><h2>South Central Region — Dallas, TX</h2><div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('regional');return false;">Regional Offices</a> / South Central</div></div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">South Central Regional Office</h2>
+      <div class="info-box"><strong>Service Territory:</strong> Arkansas, Louisiana, New Mexico, Oklahoma, Texas.</div>
+      <h3 class="sub-h">Office Contact</h3>
+      <p>📍 819 Taylor Street, Room 11A00, Fort Worth, TX 76102<br>📞 (817) 978-2321<br>📧 pcd.southcentral@gsa.gov<br>🕐 Monday – Friday, 8:00 AM – 4:30 PM CST</p>
+      <p>All South Central service inquiries are processed through the Fort Worth office. The Dallas liaison office is not staffed for public inquiries.</p>
+      <div class="dead-end-box"><h3>Staff Directory Unavailable</h3><p>Staff contact information for this region is not available via this portal. Please contact the office directly.</p></div>
+    </div>
+    <div class="page-sidebar"><ul class="sidebar-nav"><li><a href="#" onclick="showPage('region-northeast');return false;">Northeast</a></li><li><a href="#" onclick="showPage('region-midwest');return false;">Midwest</a></li><li><a href="#" onclick="showPage('region-southeast');return false;">Southeast</a></li><li><a href="#" onclick="showPage('region-south');return false;" class="active">South Central</a></li><li><a href="#" onclick="showPage('region-western');return false;">Western</a></li><li><a href="#" onclick="showPage('region-pacific');return false;">Pacific</a></li></ul></div>
+  </div>
+</div>
+
+<div id="page-region-western" class="page-hidden">
+  <div class="page-header-bar"><h2>Western Region — Denver, CO</h2><div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('regional');return false;">Regional Offices</a> / Western</div></div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Western Regional Office</h2>
+      <div class="info-box"><strong>Service Territory:</strong> Arizona, Colorado, Montana, Nevada, Utah, Wyoming.</div>
+      <h3 class="sub-h">Office Contact</h3>
+      <p>📍 1244 Speer Boulevard, Suite 300, Denver, CO 80204<br>📞 (303) 236-7408<br>📧 pcd.western@gsa.gov<br>🕐 Monday – Friday, 8:00 AM – 4:30 PM MST</p>
+      <p>The Western Regional Office currently handles all Mountain states operations and coordinates with the Pacific Region on cross-territory assignments. Current capacity: accepting new service requests.</p>
+      <a href="#" onclick="showPage('dead-form');return false;" class="btn-primary" style="margin-top:12px;display:inline-block;">Submit Service Request</a>
+    </div>
+    <div class="page-sidebar"><ul class="sidebar-nav"><li><a href="#" onclick="showPage('region-northeast');return false;">Northeast</a></li><li><a href="#" onclick="showPage('region-midwest');return false;">Midwest</a></li><li><a href="#" onclick="showPage('region-southeast');return false;">Southeast</a></li><li><a href="#" onclick="showPage('region-south');return false;">South Central</a></li><li><a href="#" onclick="showPage('region-western');return false;" class="active">Western</a></li><li><a href="#" onclick="showPage('region-pacific');return false;">Pacific</a></li></ul></div>
+  </div>
+</div>
+
+<div id="page-region-pacific" class="page-hidden">
+  <div class="page-header-bar"><h2>Pacific Region — Seattle, WA</h2><div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / <a href="#" onclick="showPage('regional');return false;">Regional Offices</a> / Pacific</div></div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Pacific Regional Office</h2>
+      <div class="info-box"><strong>Service Territory:</strong> Alaska, California, Hawaii, Idaho, Oregon, Washington.</div>
+      <h3 class="sub-h">Office Contact</h3>
+      <p>📍 400 15th Street SW, Auburn, WA 98001<br>📞 (253) 931-7956<br>📧 pcd.pacific@gsa.gov<br>🕐 Monday – Friday, 8:00 AM – 4:30 PM PST</p>
+      <p>Pacific Region field teams are active across all six states in the service territory. Alaska operations are coordinated through a sub-office in Anchorage on a seasonal basis.</p>
+    </div>
+    <div class="page-sidebar"><ul class="sidebar-nav"><li><a href="#" onclick="showPage('region-northeast');return false;">Northeast</a></li><li><a href="#" onclick="showPage('region-midwest');return false;">Midwest</a></li><li><a href="#" onclick="showPage('region-southeast');return false;">Southeast</a></li><li><a href="#" onclick="showPage('region-south');return false;">South Central</a></li><li><a href="#" onclick="showPage('region-western');return false;">Western</a></li><li><a href="#" onclick="showPage('region-pacific');return false;" class="active">Pacific</a></li></ul></div>
+  </div>
+</div>
+
+<!-- ══ RESOURCES ══ -->
+<div id="page-resources" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Resources &amp; Forms</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / Resources</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Forms &amp; Documents</h2>
+      <p>The following forms and documents are available for download. All forms must be submitted to your nearest regional office or via the authorized agency submission system.</p>
+
+      <h3 class="sub-h">Standard Request Forms</h3>
+      <ul class="pdf-list">
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD-100 Property Recovery Request Form');return false;">PCD-100 — Property Recovery Request Form (Rev. 03/2024)</a> <span class="pdf-size">PDF — 84 KB</span></li>
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD-115 Asset Inventory Declaration');return false;">PCD-115 — Asset Inventory Declaration</a> <span class="pdf-size">PDF — 112 KB</span></li>
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD-202 Media Transfer Authorization');return false;">PCD-202 — Media Transfer Authorization</a> <span class="pdf-size">PDF — 96 KB</span></li>
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD-310 Hazardous Material Site Assessment');return false;">PCD-310 — Hazardous Material Site Assessment</a> <span class="pdf-size">PDF — 220 KB</span></li>
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD-401 Contractor Authorization Agreement');return false;">PCD-401 — Contractor Authorization Agreement</a> <span class="pdf-size">PDF — 158 KB</span></li>
+      </ul>
+
+      <h3 class="sub-h">Policy Documents</h3>
+      <ul class="pdf-list">
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD Property Clearance Standards Manual 2024');return false;">PCD Property Clearance Standards Manual (2024 Edition)</a> <span class="pdf-size">PDF — 1.4 MB</span></li>
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('PCD Chain-of-Custody Protocols');return false;">Chain-of-Custody Documentation Protocols</a> <span class="pdf-size">PDF — 340 KB</span></li>
+        <li><span class="pdf-icon">📄</span> <a href="#" onclick="fakeDownload('MTO Tape Handling Guidelines');return false;">MTO Tape Handling &amp; Classification Guidelines</a> <span class="pdf-size">PDF — 190 KB</span></li>
+      </ul>
+
+      <h3 class="sub-h">Archived Documents</h3>
+      <p>Pre-2020 forms and policy documents are available through the Archived Records portal.</p>
+      <a href="#" onclick="showPage('dead-archive');return false;" class="btn-primary" style="display:inline-block;margin-top:8px;">Access Archive Portal</a>
+
+      <div id="download-msg" style="display:none;margin-top:16px;" class="info-box">Document request submitted. Your download will be processed through the GSA secure document delivery system. Allow 1–3 business days for delivery to your registered agency email.</div>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('resources');return false;" class="active">Forms &amp; Documents</a></li>
+        <li><a href="#" onclick="showPage('notices');return false;">Notices &amp; Memos</a></li>
+        <li><a href="#" onclick="showPage('dead-archive');return false;">Archived Records</a></li>
+        <li><a href="#" onclick="showPage('dead-internal');return false;">Training Materials</a></li>
+      </ul>
+      <div class="sidebar-box">
+        <h4>Need Assistance?</h4>
+        <p>For help with forms or document submission, contact your regional office or call the national helpline:<br><br><strong>(202) 272-2500</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NOTICES ══ -->
+<div id="page-notices" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Notices &amp; Updates</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / News &amp; Notices</div>
+  </div>
+  <div class="page-body full-width">
+    <h2 class="section-h">Official Notices &amp; Internal Memos</h2>
+    <p style="margin-bottom:20px;font-size:15px;">The following notices are published for informational purposes. Internal memos marked <span class="tag tag-memo">MEMO</span> are for authorized agency personnel only.</p>
+    <table class="notice-table">
+      <thead>
+        <tr>
+          <th style="width:100px;">Date</th>
+          <th style="width:100px;">Type</th>
+          <th>Title</th>
+          <th style="width:120px;">Issuing Office</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>05/14/2024</td><td><span class="tag tag-update">UPDATE</span></td><td><a href="#" onclick="showPage('dead-notice');return false;">Updated General Property Clearance Guidelines — FY2024 Q3</a></td><td>HQ Operations</td></tr>
+        <tr><td>04/30/2024</td><td><span class="tag tag-memo">MEMO</span></td><td><a href="#" onclick="showPage('dead-internal');return false;">New Archival Review Procedures (Internal Memo)</a></td><td>Records Division</td></tr>
+        <tr><td>04/22/2024</td><td><span class="tag tag-notice">NOTICE</span></td><td><a href="#" onclick="showPage('region-southeast');return false;">Southeast Region Facility Expansion — Construction Notice</a></td><td>Southeast Region</td></tr>
+        <tr><td>04/05/2024</td><td><span class="tag tag-memo">MEMO</span></td><td><a href="#" onclick="showPage('dead-internal');return false;">Media Transfer Operations — Tape Handling Reminder</a></td><td>MTO</td></tr>
+        <tr><td>03/18/2024</td><td><span class="tag tag-update">UPDATE</span></td><td><a href="#" onclick="showPage('dead-notice');return false;">Contractor Vetting Requirements Update (Effective April 2024)</a></td><td>HQ Operations</td></tr>
+        <tr><td>02/27/2024</td><td><span class="tag tag-notice">NOTICE</span></td><td><a href="#" onclick="showPage('dead-notice');return false;">FY2024 Service Territory Boundary Adjustments</a></td><td>Regional Affairs</td></tr>
+        <tr><td>01/10/2024</td><td><span class="tag tag-restricted">RESTRICTED</span></td><td><a href="#" onclick="showPage('dead-internal');return false;">Annual Classification Review — MTO Media Archive</a></td><td>MTO / Records</td></tr>
+        <tr><td>12/04/2023</td><td><span class="tag tag-update">UPDATE</span></td><td><a href="#" onclick="showPage('dead-notice');return false;">PCD Chain-of-Custody Protocol Revision — Version 4.2</a></td><td>HQ Operations</td></tr>
+        <tr><td>10/15/2023</td><td><span class="tag tag-memo">MEMO</span></td><td><a href="#" onclick="showPage('dead-internal');return false;">Western Region Staffing Expansion — Internal Announcement</a></td><td>HR / Admin</td></tr>
+      </tbody>
+    </table>
+    <div class="alert-box" style="margin-top:24px;">Notices marked <strong>RESTRICTED</strong> or <strong>MEMO</strong> require employee portal authentication to view full content. <a href="#" onclick="showPage('login');return false;">Login here.</a></div>
+  </div>
+</div>
+
+<!-- ══ CAREERS ══ -->
+<div id="page-careers" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Careers at PCD</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / Careers</div>
+  </div>
+  <div class="page-body">
+    <div class="prose">
+      <h2 class="section-h">Join the Property Clearance Division</h2>
+      <p>The Property Clearance Division offers meaningful federal careers with competitive pay, comprehensive benefits, and the satisfaction of public service. PCD employees work across the United States helping communities and government agencies manage complex property clearance operations.</p>
+
+      <div class="info-box">All PCD positions are federal civil service appointments. Applications are processed through USAJobs.gov in coordination with the GSA Human Capital Office.</div>
+
+      <h3 class="sub-h">Current Openings</h3>
+      <p>Positions currently listed for FY2024:</p>
+      <table class="notice-table" style="margin-bottom:8px;">
+        <thead><tr><th>Position</th><th>Grade</th><th>Region</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Field Operations Specialist</td><td>GS-7/9</td><td>Southeast</td><td><a href="#" onclick="showPage('dead-apply');return false;">Apply ▶</a></td></tr>
+          <tr><td>Asset Documentation Analyst</td><td>GS-9/11</td><td>Midwest</td><td><a href="#" onclick="showPage('dead-apply');return false;">Apply ▶</a></td></tr>
+          <tr><td>Logistics Coordinator</td><td>GS-7</td><td>Western</td><td><a href="#" onclick="showPage('dead-apply');return false;">Apply ▶</a></td></tr>
+          <tr><td>Records Management Specialist</td><td>GS-9</td><td>Northeast</td><td><a href="#" onclick="showPage('dead-apply');return false;">Apply ▶</a></td></tr>
+          <tr><td>Hazard Compliance Officer</td><td>GS-11/12</td><td>Pacific</td><td><a href="#" onclick="showPage('dead-apply');return false;">Apply ▶</a></td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub-h">How to Apply</h3>
+      <ol class="apply-steps">
+        <li><div class="step-content"><h4>Create a USAJobs Profile</h4><p>All federal applications are submitted via USAJobs.gov. Create or update your profile before applying to PCD positions.</p></div></li>
+        <li><div class="step-content"><h4>Review Position Requirements</h4><p>Read the full position description including required qualifications, duty location, and salary range. PCD positions may require background investigation clearance.</p></div></li>
+        <li><div class="step-content"><h4>Submit Application</h4><p>Submit your résumé, transcripts, and any required supporting documents through USAJobs. Incomplete applications will not be considered.</p></div></li>
+        <li><div class="step-content"><h4>Background &amp; Suitability Review</h4><p>Selected candidates will undergo a federal background investigation appropriate to the position's security requirements.</p></div></li>
+        <li><div class="step-content"><h4>Onboarding &amp; Training</h4><p>New hires complete a formal onboarding program including PCD orientation, safety training, and position-specific field certification.</p></div></li>
+      </ol>
+
+      <h3 class="sub-h">Benefits</h3>
+      <ul>
+        <li>Federal Employee Health Benefits (FEHB) — medical, dental, vision</li>
+        <li>Federal Employees Retirement System (FERS)</li>
+        <li>Thrift Savings Plan (TSP) with agency matching</li>
+        <li>Paid federal holidays, annual, and sick leave</li>
+        <li>Training and professional development programs</li>
+        <li>Transit and parking subsidies</li>
+      </ul>
+    </div>
+    <div class="page-sidebar">
+      <ul class="sidebar-nav">
+        <li><a href="#" onclick="showPage('careers');return false;" class="active">Open Positions</a></li>
+        <li><a href="#" onclick="showPage('dead-apply');return false;">Apply on USAJobs</a></li>
+        <li><a href="#" onclick="showPage('dead-apply');return false;">Benefits Information</a></li>
+        <li><a href="#" onclick="showPage('contact');return false;">HR Contact</a></li>
+      </ul>
+      <div class="sidebar-box">
+        <h4>HR Inquiries</h4>
+        <p>For career-related questions:<br><br>📞 (202) 272-2580<br>📧 pcd.careers@gsa.gov</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div id="page-contact" class="page-hidden">
+  <div class="page-header-bar">
+    <h2>Contact Us</h2>
+    <div class="breadcrumb"><a href="#" onclick="showPage('home');return false;">Home</a> / Contact</div>
+  </div>
+  <div class="page-body full-width">
+    <h2 class="section-h">Contact the Property Clearance Division</h2>
+    <div class="contact-grid" style="margin-bottom:32px;">
+      <div class="contact-card">
+        <h3>National Headquarters</h3>
+        <p>Property Clearance Division<br>U.S. General Services Administration<br>1800 F Street NW<br>Washington, DC 20405<br><br>📞 (202) 272-2500<br>📧 pcd.contact@gsa.gov<br>🕐 Mon – Fri, 8:00 AM – 5:00 PM EST</p>
+      </div>
+      <div class="contact-card">
+        <h3>Media &amp; Press Inquiries</h3>
+        <p>For press and public affairs inquiries, contact the GSA Office of Communications and Marketing.<br><br>📞 (202) 501-1231<br>📧 pcd.press@gsa.gov<br><br>All media inquiries must be submitted in writing. Response time is approximately 3–5 business days.</p>
+      </div>
+      <div class="contact-card">
+        <h3>FOIA Requests</h3>
+        <p>Freedom of Information Act requests for PCD records should be submitted to the GSA FOIA Office.<br><br>📞 (202) 501-2262<br>📧 gsa.foia@gsa.gov<br><br>PCD maintains records in accordance with federal retention schedules.</p>
+      </div>
+      <div class="contact-card">
+        <h3>Report Fraud / Waste / Abuse</h3>
+        <p>To report suspected fraud, waste, or abuse involving PCD operations, contact the GSA Office of Inspector General.<br><br>📞 (800) 424-5210<br>📧 ighotline@gsaig.gov<br><br>Reports may be submitted anonymously.</p>
+      </div>
+    </div>
+
+    <h2 class="section-h">General Inquiry Form</h2>
+    <div style="max-width:560px;">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label>Agency / Organization</label>
+        <input type="text" placeholder="Federal agency or organization name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your.name@agency.gov">
+        <div class="form-note">Government email addresses are preferred.</div>
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <select>
+          <option>— Select a subject —</option>
+          <option>Service Request Inquiry</option>
+          <option>Regional Office Contact</option>
+          <option>Career / Employment</option>
+          <option>Media / Press Inquiry</option>
+          <option>FOIA Request</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea rows="5" placeholder="Describe your inquiry in detail..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="fakeSubmit();return false;">Submit Inquiry</button>
+      <div id="submit-confirm" style="display:none;margin-top:16px;" class="info-box">Your inquiry has been received. A PCD representative will respond within 3–5 business days. Reference ID: PCD-<span id="ref-id"></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOGIN ══ -->
+<div id="page-login" class="page-hidden">
+  <div class="login-page">
+    <div class="login-box">
+      <div class="login-header">
+        <div class="mini-seal">🏛️</div>
+        <div>
+          <h3>PCD Employee Portal</h3>
+          <span>Property Clearance Division · GSA</span>
+        </div>
+      </div>
+      <h4>Secure Sign-In</h4>
+      <p class="subtitle">This portal is for authorized PCD employees only. Unauthorized access is prohibited under 18 U.S.C. § 1030.</p>
+      <div class="login-error" id="login-error">Invalid credentials. Please verify your employee ID and password and try again.</div>
+      <div class="form-group">
+        <label>Employee Email / ID</label>
+        <input type="email" id="login-email" placeholder="employee@gsa.gov" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button class="btn-submit" style="width:100%;" onclick="doLogin();return false;">Sign In</button>
+      <div style="text-align:center;margin-top:14px;font-size:13px;color:var(--mid-gray);">
+        <a href="#" onclick="showPage('dead-internal');return false;" style="color:var(--link-blue);">Forgot password?</a> &nbsp;|&nbsp;
+        <a href="#" onclick="showPage('contact');return false;" style="color:var(--link-blue);">IT Support</a>
+      </div>
+      <div class="login-notice">
+        This is a U.S. Government information system. Use of this system constitutes consent to monitoring. Unauthorized use may result in criminal prosecution.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TRAINING VIDEO (Employee Only) ══ -->
+<div id="page-training" class="page-hidden">
+  <div style="background:var(--navy-dark);padding:10px 0;">
+    <div style="max-width:960px;margin:0 auto;padding:0 20px;">
+      <div class="logout-bar" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.15);color:#c0cfe8;">
+        <span>🔒 Authenticated Session &nbsp;|&nbsp; <strong id="logged-in-user" style="color:#c8d8f0;">employee@gsa.gov</strong> &nbsp;|&nbsp; PCD Employee Portal</span>
+        <button class="btn-logout" style="color:#a0b0c8;border-color:#4a5a6a;" onclick="doLogout();return false;">Sign Out</button>
+      </div>
+    </div>
+  </div>
+  <div class="page-header-bar" style="background:var(--navy-mid);">
+    <h2>Employee Training Portal</h2>
+    <div class="breadcrumb">Employee Portal / Training &amp; Certification</div>
+  </div>
+  <div class="training-page">
+    <div class="training-header">
+      <h2>PCD Field Operations — Onboarding Training</h2>
+      <span class="employee-badge">🔒 Restricted Access</span>
+    </div>
+
+    <div class="training-meta">
+      <div class="training-meta-item"><label>Course ID</label><span>PCD-OB-2024-01</span></div>
+      <div class="training-meta-item"><label>Issued By</label><span>HQ Training Division</span></div>
+      <div class="training-meta-item"><label>Required For</label><span>All New Field Personnel</span></div>
+    </div>
+
+    <!-- VIDEO EMBED AREA -->
+    <div class="video-container" id="video-area">
+      <!-- 
+        ╔═══════════════════════════════════════════════════════════╗
+        ║  TRAINING VIDEO PLACEHOLDER                               ║
+        ║  To embed your video, replace the contents of this        ║
+        ║  <div class="video-container"> with your video element:   ║
+        ║                                                           ║
+        ║  Option A — Local file:                                   ║
+        ║  <video width="100%" controls>                            ║
+        ║    <source src="training.mp4" type="video/mp4">           ║
+        ║  </video>                                                 ║
+        ║                                                           ║
+        ║  Option B — GitHub hosted:                                ║
+        ║  Upload your .mp4 to the repo and use a relative path     ║
+        ║                                                           ║
+        ╚═══════════════════════════════════════════════════════════╝
+      -->
+      <div class="video-placeholder-inner">
+        <span class="play-icon">▶</span>
+        <div class="vid-title">PCD Field Operations Orientation</div>
+        <p>Training video pending upload</p>
+        <p style="font-size:12px;margin-top:8px;color:#666;">Module 1 of 6 · Estimated runtime: 18:42</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin-bottom:12px;">Training Modules</h3>
+    <div class="training-modules">
+      <div class="training-module">
+        <div class="module-num">1</div>
+        <div class="module-info"><strong>PCD Overview &amp; Agency Mission</strong><span>Introduction to the Property Clearance Division · 18:42</span></div>
+        <span class="module-status active">Now Playing</span>
+      </div>
+      <div class="training-module">
+        <div class="module-num">2</div>
+        <div class="module-info"><strong>Field Safety &amp; PPE Requirements</strong><span>Personal protective equipment and site safety protocols · 24:15</span></div>
+        <span class="module-status">Locked</span>
+      </div>
+      <div class="training-module">
+        <div class="module-num">3</div>
+        <div class="module-info"><strong>Chain-of-Custody Documentation</strong><span>Asset tagging, inventory forms, and custody transfer · 31:08</span></div>
+        <span class="module-status">Locked</span>
+      </div>
+      <div class="training-module">
+        <div class="module-num">4</div>
+        <div class="module-info"><strong>Hazardous Material Identification</strong><span>Basic HazMat identification and reporting protocols · 28:50</span></div>
+        <span class="module-status">Locked</span>
+      </div>
+      <div class="training-module">
+        <div class="module-num">5</div>
+        <div class="module-info"><strong>Media Transfer Operations — Overview</strong><span>Handling and cataloguing analog media assets · 22:33</span></div>
+        <span class="module-status">Locked</span>
+      </div>
+      <div class="training-module">
+        <div class="module-num">6</div>
+        <div class="module-info"><strong>Employee Conduct &amp; Ethics</strong><span>Federal standards of conduct and reporting obligations · 15:20</span></div>
+        <span class="module-status">Locked</span>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:28px;">
+      <strong>Completion Requirements:</strong> All six modules must be completed within 30 days of your start date. Completion is tracked automatically. Contact your supervisor or <a href="#" onclick="return false;">training@pcd.gsa.gov</a> if you experience technical issues.
+    </div>
+  </div>
+</div>
+
+<!-- ══ DEAD ENDS ══ -->
+<div id="page-dead-internal" class="page-hidden">
+  <div class="page-header-bar"><h2>Access Restricted</h2></div>
+  <div class="page-body full-width">
+    <div class="dead-end-box">
+      <h3>🔒 This Page Is Not Accessible Via This Portal</h3>
+      <p>The content you requested is restricted to authorized agency personnel.<br>Please log in to the Employee Portal to continue, or contact your regional office for assistance.</p>
+      <br>
+      <a href="#" onclick="showPage('login');return false;" class="btn-primary">Employee Login</a>
+      &nbsp;&nbsp;
+      <a href="#" onclick="showPage('home');return false;" class="btn-secondary" style="border-color:#aaa;color:#555;">Return to Homepage</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-dead-archive" class="page-hidden">
+  <div class="page-header-bar"><h2>Archived Records Portal</h2></div>
+  <div class="page-body full-width">
+    <div class="dead-end-box">
+      <h3>⚙ Transfer Unavailable</h3>
+      <p>The Archived Records portal is currently offline for scheduled migration to the new GSA Records Management System.<br><br>Pre-2020 records requests should be directed to your regional office or submitted via the standard FOIA process.<br><br>Expected restoration: Q4 2024</p>
+      <br>
+      <a href="#" onclick="showPage('contact');return false;" class="btn-primary">Contact Your Region</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-dead-form" class="page-hidden">
+  <div class="page-header-bar"><h2>Service Request Submission</h2></div>
+  <div class="page-body full-width">
+    <div class="dead-end-box">
+      <h3>⚠ Online Submission Temporarily Unavailable</h3>
+      <p>The online service request form is temporarily unavailable. Please contact your regional office directly to submit a service request by phone or email.</p>
+      <br>
+      <a href="#" onclick="showPage('regional');return false;" class="btn-primary">Find Your Regional Office</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-dead-notice" class="page-hidden">
+  <div class="page-header-bar"><h2>Notice Detail</h2></div>
+  <div class="page-body full-width">
+    <div class="alert-box">This notice has been archived. The document management system migration is ongoing. Full notice text will be restored by end of Q3 2024. Contact HQ Operations at (202) 272-2500 for the current version of this policy.</div>
+    <br>
+    <a href="#" onclick="showPage('notices');return false;">← Return to All Notices</a>
+  </div>
+</div>
+
+<div id="page-dead-apply" class="page-hidden">
+  <div class="page-header-bar"><h2>Application Portal</h2></div>
+  <div class="page-body full-width">
+    <div class="dead-end-box">
+      <h3>Application Portal Unavailable</h3>
+      <p>The PCD application portal is currently directing all applications through USAJobs.gov. The direct link to this position was not found.<br><br>Please visit <strong>usajobs.gov</strong> and search for "Property Clearance Division" to find current openings.</p>
+      <br>
+      <a href="#" onclick="showPage('careers');return false;" class="btn-primary">Return to Careers</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-search-results" class="page-hidden">
+  <div class="page-header-bar"><h2>Search Results</h2></div>
+  <div class="page-body full-width">
+    <div class="dead-end-box">
+      <h3>Search Temporarily Unavailable</h3>
+      <p>The site-wide search function is undergoing maintenance. Please use the navigation menu to find the information you need, or contact your regional office.</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>PROPERTY CLEARANCE DIVISION</h3>
+      <p>U.S. General Services Administration<br>1800 F Street NW<br>Washington, DC 20405<br>(202) 272-2500<br>pcd.contact@gsa.gov</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#" onclick="showPage('dead-internal');return false;">FOIA</a>
+      <a href="#" onclick="showPage('dead-internal');return false;">Privacy Policy</a>
+      <a href="#" onclick="showPage('dead-internal');return false;">Accessibility</a>
+      <a href="#" onclick="showPage('dead-internal');return false;">Site Map</a>
+      <a href="#" onclick="showPage('dead-internal');return false;">No FEAR Act</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <a href="#" onclick="showPage('dead-internal');return false;">LinkedIn</a>
+      <a href="#" onclick="showPage('dead-internal');return false;">YouTube</a>
+      <a href="#" onclick="showPage('dead-internal');return false;">Twitter (X)</a>
+    </div>
+    <div class="footer-col" style="display:flex;align-items:flex-start;justify-content:flex-end;">
+      <div class="footer-seal">🦅</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Property Clearance Division · U.S. General Services Administration · An official website of the United States government</span>
+  </div>
+</footer>
+
+<script>
+// Page routing
+const pages = [
+  'home','about','leadership','services','divisions','regional',
+  'region-northeast','region-midwest','region-southeast','region-south','region-western','region-pacific',
+  'resources','notices','careers','contact','login','training',
+  'dead-internal','dead-archive','dead-form','dead-notice','dead-apply','search-results'
+];
+
+function showPage(name) {
+  pages.forEach(p => {
+    const el = document.getElementById('page-' + p);
+    if (el) el.classList.add('page-hidden');
+  });
+  const target = document.getElementById('page-' + name);
+  if (target) {
+    target.classList.remove('page-hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState({page: name}, '', '#' + name);
+  }
+}
+
+// Handle back button
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.page) showPage(e.state.page);
+  else showPage('home');
+});
+
+// Login logic
+function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const pass  = document.getElementById('login-pass').value;
+  const err   = document.getElementById('login-error');
+
+  if (!email || !pass) {
+    err.style.display = 'block';
+    err.textContent = 'Please enter your employee email and password.';
+    return;
+  }
+  // Accept any credentials
+  err.style.display = 'none';
+  document.getElementById('logged-in-user').textContent = email;
+  showPage('training');
+}
+
+function doLogout() {
+  document.getElementById('login-email').value = '';
+  document.getElementById('login-pass').value = '';
+  showPage('login');
+}
+
+// Fake download
+function fakeDownload(name) {
+  const msg = document.getElementById('download-msg');
+  if (msg) {
+    msg.style.display = 'block';
+    msg.innerHTML = `Document request submitted for <strong>${name}</strong>. Your download will be processed through the GSA secure document delivery system. Allow 1–3 business days for delivery to your registered agency email.`;
+  }
+}
+
+// Fake contact submit
+function fakeSubmit() {
+  const conf = document.getElementById('submit-confirm');
+  const refId = document.getElementById('ref-id');
+  if (conf) {
+    refId.textContent = Math.floor(100000 + Math.random() * 900000);
+    conf.style.display = 'block';
+  }
+}
+
+// Init
+showPage('home');
+</script>
+</body>
+</html>
